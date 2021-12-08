@@ -2,37 +2,138 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: white;
+  height: 100px;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Londrina Outline', cursive;
+  font-size: 5em;
+  margin: 10px 0 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h4 {
+  font-family: 'Londrina Outline', cursive;
+  font-size: 10em;
+  text-align: center;
+  margin: 0;
+  color: magenta;
+}
+
+header {
+  position: relative;
+  width: 804px;
+  height: 92px;
+  margin: auto;
+  background: white;
+  color: black;
+}
+
+.button {
+  position: absolute; /* otherwise the rising score makes the start button shake */
+  cursor: pointer;
+  top: 16px;
+  left: 327px;   
+  width: 150px;
+  height: 60px;
+  border-radius: 50px;
+  margin: auto;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 0;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.start {
+  background-color: darkmagenta;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start:active {
+  background-color: #610957;
+  transform: translateY(2px);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+#stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;  
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  border: 2px solid white;
+  overflow: hidden;
+}
+
+.score {
+  position: absolute;
+  left: 25px;
+  top: 12px;
+  width: 300px;
+}
+
+.timer {
+  position: absolute;
+  right: 25px;
+  top: 12px;
+  width: 130px;
+}
+
+:root {
+  --animation-time-x: 5.05s;
+  --animation-time-y: 4.4s;
+  --keyframe-moveX-start: 0px;
+  --keyframe-moveX-end: 700px;
+  --keyframe-moveY-start: 0px;
+  --keyframe-moveY-end: 400px;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%; 
+  display: block;
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  animation: moveX var(--animation-time-x) linear 0s infinite alternate, 
+  moveY var(--animation-time-y) linear 0s infinite alternate;
+  animation: none; 
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .animate-bubble {
+  animation: moveX var(--animation-time-x) linear 0s infinite alternate, 
+  moveY var(--animation-time-y) linear 0s infinite alternate;
+} */
+
+@keyframes moveX {
+  from { left: var(--keyframe-moveX-start); } to { left: var(--keyframe-moveX-end); }
+}
+
+@keyframes moveY {
+  from { top: var(--keyframe-moveY-start); } to { top: var(--keyframe-moveY-end); }
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
 }
